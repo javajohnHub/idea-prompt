@@ -1,10 +1,6 @@
 This is where the magic will happen.
-<ng-container *ngIf="auth.user$ | async; else loggedOut">
-  <button (click)="auth.logout({ returnTo: '/logout' })">
-    Log out
-  </button>
-</ng-container>
 
-<ng-template #loggedOut>
-  <button (click)="auth.loginWithRedirect()">Log in</button>
-</ng-template>
+<button (click)="auth.loginWithRedirect()">Log in</button>
+<button (click)="auth.logout({ returnTo: '/prompt' })">
+  Log out
+</button>
