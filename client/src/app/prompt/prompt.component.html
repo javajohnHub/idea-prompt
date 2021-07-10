@@ -1,5 +1,6 @@
 This is where the magic will happen.
-<ng-container *ngIf="(auth.isAuthenticated$ | async); else loggedOut">
+isAuth {{auth.isAuthenticated$ | async}}
+<ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
   <button (click)="auth.logout({ returnTo: '/logout' })">
     Log out
   </button>
