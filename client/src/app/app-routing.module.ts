@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   { path: 'logout', component: LogoutComponent },
   { path: '**', redirectTo: '/prompt' },
