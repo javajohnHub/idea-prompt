@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
@@ -7,6 +7,10 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./prompt.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PromptComponent {
+export class PromptComponent implements OnInit {
   constructor(public auth: AuthService) {}
+
+  ngOnInit(): void {
+    this.auth.user$.subscribe(console.log);
+  }
 }
