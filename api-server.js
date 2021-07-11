@@ -4,17 +4,17 @@ const helmet = require('helmet');
 const cors = require('cors');
 const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
-const authConfig = require('./auth_config.json');
+const authConfig = process.env;
 
 const app = express();
 
 if (
   !authConfig.domain ||
   !authConfig.audience ||
-  authConfig.audience === "YOUR_API_IDENTIFIER"
+  authConfig.audience === 'YOUR_API_IDENTIFIER'
 ) {
   console.log(
-    "Exiting: Please make sure that auth_config.json is in place and populated with valid domain and audience values"
+    'Exiting: Please make sure that auth_config.json is in place and populated with valid domain and audience values'
   );
 
   process.exit();
