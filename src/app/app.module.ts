@@ -43,7 +43,9 @@ import {
     NgbModule,
     HighlightModule,
     FontAwesomeModule,
-    AuthModule.forRoot(),
+    AuthModule.forRoot({
+      ...(process.env as AuthConfig),
+    }),
   ],
   providers: [
     {
