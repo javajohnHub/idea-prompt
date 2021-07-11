@@ -22,6 +22,7 @@ import {
   AuthHttpInterceptor,
   AuthModule,
 } from '@auth0/auth0-angular';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import {
       useClass: AuthHttpInterceptor,
       multi: true,
     },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     {
       provide: Window,
       useValue: window,

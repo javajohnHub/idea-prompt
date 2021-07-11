@@ -18,7 +18,7 @@ app.use(
       // reportOnly: true,
       directives: {
         'default-src': ["'self'"],
-        'connect-src': ["'self'", 'https://*.auth0.com', process.env.apiUri],
+        'connect-src': ["'self'", 'https://*.auth0.com', process.env.appUri],
         'frame-src': ["'self'", 'https://*.auth0.com'],
         'base-uri': ["'self'"],
         'block-all-mixed-content': [],
