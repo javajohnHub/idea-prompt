@@ -17,8 +17,11 @@ import { HomeContentComponent } from './components/home-content/home-content.com
 import { LoadingComponent } from './components/loading/loading.component';
 import { ExternalApiComponent } from './pages/external-api/external-api.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
-import { environment as env } from '../environments/environment';
+import {
+  AuthConfig,
+  AuthHttpInterceptor,
+  AuthModule,
+} from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,7 @@ import { environment as env } from '../environments/environment';
     HomeContentComponent,
     LoadingComponent,
     ExternalApiComponent,
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,10 +44,7 @@ import { environment as env } from '../environments/environment';
     HighlightModule,
     FontAwesomeModule,
     AuthModule.forRoot({
-      ...env.auth,
-      httpInterceptor: {
-        ...env.httpInterceptor,
-      },
+      ...(process.env as AuthConfig),
     }),
   ],
   providers: [
