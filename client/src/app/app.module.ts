@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthModule, AuthService } from '@auth0/auth0-angular';
 import {
   CommonModule,
   HashLocationStrategy,
@@ -31,7 +31,10 @@ import { SettingsComponent } from './settings/settings.component';
       clientId: 'XC1RbLfPaba8YT2K9KX0Xm3ub4lL4bmv',
     }),
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    AuthService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
