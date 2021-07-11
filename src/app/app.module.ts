@@ -44,7 +44,8 @@ import {
     HighlightModule,
     FontAwesomeModule,
     AuthModule.forRoot({
-      ...(process.env as AuthConfig),
+      domain: 'johnedwards.auth0.com',
+      clientId: 'XC1RbLfPaba8YT2K9KX0Xm3ub4lL4bmv',
     }),
   ],
   providers: [
