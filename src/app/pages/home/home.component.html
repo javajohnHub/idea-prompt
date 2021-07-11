@@ -3,6 +3,7 @@
 </div>
 
 <ng-template #loaded>
+  {{auth.isAuthenticated$ | async}}
   <app-hero></app-hero>
   <app-home-content></app-home-content>
 </ng-template>
