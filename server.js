@@ -55,6 +55,11 @@ app.get('/api/check', checkJwt, (req, res) => {
     msg: 'Your access token was successfully validated!',
   });
 });
+app.get('/authorize', checkJwt, (req, res) => {
+  res.send({
+    msg: 'Your access token was successfully validated!',
+  });
+});
 app.use(express.static(join(__dirname, 'dist/login-demo')));
 
 app.listen(port, () => console.log(`App server listening on port ${port}`));
