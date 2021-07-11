@@ -9,7 +9,6 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   ping$(): Observable<any> {
-    console.log(process.env.apiUri);
-    return this.http.get(`${process.env.apiUri}/api/external`);
+    return this.http.get(`${process.env.apiUri}/external`);
   }
 }
