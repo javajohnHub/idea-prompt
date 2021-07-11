@@ -11,6 +11,7 @@ export class PromptComponent implements OnInit {
   constructor(public auth: AuthService) {}
 
   ngOnInit(): void {
-    this.auth.user$.subscribe(console.log);
+    this.auth.isLoading$.subscribe(console.log);
+    this.auth.isAuthenticated$.subscribe(console.log);
   }
 }
