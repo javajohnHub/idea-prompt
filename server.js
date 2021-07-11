@@ -6,8 +6,6 @@ const authConfig = process.env;
 
 const app = express();
 
-const port = process.env.SERVER_PORT || 4200;
-
 app.use(morgan('dev'));
 
 app.use(
@@ -31,4 +29,6 @@ app.use(
 
 app.use(express.static(join(__dirname, 'dist')));
 
-app.listen(port, () => console.log(`App server listening on port ${port}`));
+app.listen(process.env.port, () =>
+  console.log(`App server listening on port ${process.env.port}`)
+);
