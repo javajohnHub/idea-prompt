@@ -15,13 +15,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { HomeContentComponent } from './components/home-content/home-content.component';
 import { LoadingComponent } from './components/loading/loading.component';
-import { ExternalApiComponent } from './pages/external-api/external-api.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {
-  AuthConfig,
-  AuthHttpInterceptor,
-  AuthModule,
-} from '@auth0/auth0-angular';
+import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
@@ -34,7 +29,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     HeroComponent,
     HomeContentComponent,
     LoadingComponent,
-    ExternalApiComponent,
     ErrorComponent,
   ],
   imports: [
