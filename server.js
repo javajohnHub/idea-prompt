@@ -1,4 +1,7 @@
 const express = require('express');
+const cors = require('cors');
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const { join } = require('path');
@@ -28,6 +31,30 @@ app.use(
   })
 );
 
+app.use(
+  cors({
+    origin: process.env.appUri,
+  })
+);
+
+const checkJwt = jwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${process.env.domain}/.well-known/jwks.json`,
+  }),
+
+  audience: process.env.audience,
+  issuer: `https://${process.env.domain}/`,
+  algorithms: ['RS256'],
+});
+
+app.get('/api/external', checkJwt, (req, res) => {
+  res.send({
+    msg: 'Your access token was successfully validated!',
+  });
+});
 app.use(express.static(join(__dirname, 'dist/login-demo')));
 
 app.listen(port, () => console.log(`App server listening on port ${port}`));
