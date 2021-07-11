@@ -46,6 +46,6 @@ app.get('/api/external', checkJwt, (req, res) => {
   });
 });
 
-const port = process.env.PORT || 3001;
+const port = 3001;
 
 app.listen(port, () => console.log(`Api started on port ${port}`));
