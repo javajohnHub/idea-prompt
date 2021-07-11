@@ -9,4 +9,5 @@ router.get("/", function (req, res, next) {
 router.get("/authorize", function (req, res, next) {
   console.log("hit");
 });
+
 module.exports = router;
